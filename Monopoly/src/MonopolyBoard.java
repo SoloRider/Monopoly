@@ -5,6 +5,7 @@ public class MonopolyBoard
 	{
 		public static void main(String[] args)
 			{
+				int spot = 0;
 				boolean game = true;
 				ArrayList <String> board = new ArrayList<String>();
 				board.add("Go");
@@ -36,7 +37,7 @@ public class MonopolyBoard
 				board.add("Atlantic Avenue");
 				board.add("Ventor Avenue");
 				board.add("Water Works");
-				board.add("Marviin Gardens");
+				board.add("Marvin Gardens");
 				board.add("Go To Jail");
 				board.add("Pacific Avenue");
 				board.add("North Carolina Avenue");
@@ -47,22 +48,23 @@ public class MonopolyBoard
 				board.add("Park Place");
 				board.add("Luxury Tax");
 				board.add("Boardwalk");
-				for(String bob : board)
-					{
-						System.out.print(board);
-					}
+//				for(String bob : board)
+//					{
+//						System.out.print(board);
+//					}
 				while(game = true)
 					{
-						int spot = 0;
-						int dice = (int)(Math.random()* 6);
-						int dice1 = (int)(Math.random()* 6);
+						System.out.println("You are on " + board.get(spot));
+						int dice = (int)(Math.random()* 6) + 1;
+						int dice1 = (int)(Math.random()* 6) + 1;
 						spot = spot + dice + dice1;
 						if(spot > 40)
 							{
 								spot = spot - 40;
 							}
-						System.out.println("You rolled a " + dice + " and a " + dice1 + " and you are now on " + spot + ".");
-						System.out.println("You are on " + board.get(spot));
+						System.out.println("You rolled a " + dice + " and a " + dice1 + " and you are now on " + board.get(spot) + ".");
+						Scanner user1nput = new Scanner (System.in);
+						String hit = user1nput.nextLine();
 					}
 			}
 	}
