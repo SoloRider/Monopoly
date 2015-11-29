@@ -2,16 +2,26 @@
 public class Player
 	{
 		private int money;
-		public Player(int m)
+		private int properties;
+		public Player(int m, int p)
 			{
 				money = m;
+				properties = p;
 			}
 		public int getMoney()
 			{
 				return money;
 			}
-		public void setMoney(int money)
+		public int setMoney(int money)
 			{
-				this.money = money;
+				return this.money = money;
+			}
+		public int getProperties() 
+			{
+				return properties;
+			}
+		public int setProperties(int properties) 
+			{
+				return this.properties = properties;
 			}
 	}

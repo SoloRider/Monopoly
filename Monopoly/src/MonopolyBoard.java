@@ -3,11 +3,11 @@ import java.util.Scanner;
 
 public class MonopolyBoard
 	{
-		Player p = new Player(1500);
 		static Scanner user1nput = new Scanner (System.in);
 		static ArrayList<Player> player = new ArrayList<Player>();
 		public static void main(String[] args)
 			{
+				Player p = new Player(1500, 0);
 				int spot = 0;
 				boolean game = true;
 				ArrayList<Properties> board = new ArrayList<Properties>();
@@ -57,25 +57,28 @@ public class MonopolyBoard
 //					}
 				while(game = true)
 					{
-						System.out.println("You have " + p.getMoney() + ".");
+						System.out.println("You have $" + p.getMoney() + ".");
 						System.out.println("You are on " + board.get(spot).getName());
 						int dice = (int)(Math.random()* 6) + 1;
 						int dice1 = (int)(Math.random()* 6) + 1;
 						spot = spot + dice + dice1;
 						if(spot >= 40)
-							{
-								spot = spot - 40;
-								System.out.println("You passed go and you get $200.");
-								player.get(0).setMoney(+ 200);
-							}
+						{
+							spot = spot - 40;
+							System.out.println("You passed go and you get $200.");
+							player.get(0).getMoney();
+						}
 						System.out.println("You rolled a " + dice + " and a " + dice1 + " and you are now on " + board.get(spot).getName() + ".");
 						if(board.get(spot).getPrice() > 0)
 							{
-								System.out.println("Do you want to buy " + board.get(spot).getName() + " that is $" + board.get(spot).getPrice() + "? (1) Purchase it. (2) Pass.");
+								System.out.println("Do you want to buy " + board.get(spot).getName() + " for $" + board.get(spot).getPrice() + "? (1) Purchase it. (2) Pass.");
 								String buy = user1nput.nextLine();
 								if(buy.equals("1"))
 									{
-										System.out.println("Your new amount of money is " + (p.setMoney(p.getMoney() - board.get(spot).getPrice())) + ".");
+										System.out.println("Your new amount of money is $" + (p.setMoney(p.getMoney() - board.get(spot).getPrice())) + "." );
+										System.out.println("Your list of properties that you own are: ");
+										
+										System.out.println(p);
 									}
 								else
 									{
