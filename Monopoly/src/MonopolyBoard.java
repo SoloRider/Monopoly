@@ -63,11 +63,11 @@ public class MonopolyBoard
 						int dice1 = (int)(Math.random()* 6) + 1;
 						spot = spot + dice + dice1;
 						if(spot >= 40)
-						{
-							spot = spot - 40;
-							System.out.println("You passed go and you get $200.");
-							player.get(0).getMoney();
-						}
+							{
+								spot = spot - 40;
+								System.out.println("You passed go and you get $200.");
+								player.get(0).getMoney();
+							}
 						System.out.println("You rolled a " + dice + " and a " + dice1 + " and you are now on " + board.get(spot).getName() + ".");
 						if(board.get(spot).getPrice() > 0)
 							{
@@ -76,9 +76,10 @@ public class MonopolyBoard
 								if(buy.equals("1"))
 									{
 										System.out.println("Your new amount of money is $" + (p.setMoney(p.getMoney() - board.get(spot).getPrice())) + "." );
-										System.out.println("Your list of properties that you own are: ");
-										
-										System.out.println(p);
+										for(int i = 0; i < board.size(); i++)
+											{
+												System.out.println(board.get(i).getName() + ", ");
+											}
 									}
 								else
 									{
