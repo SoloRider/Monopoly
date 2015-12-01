@@ -4,9 +4,9 @@ import java.util.Scanner;
 public class MonopolyBoard
 	{
 		static Scanner user1nput = new Scanner (System.in);
-		static ArrayList<Player> player = new ArrayList<Player>();
 		public static void main(String[] args)
 			{
+				ArrayList<Properties> inventory = new ArrayList<Properties>();
 				Player p = new Player(1500, 0);
 				int spot = 0;
 				boolean game = true;
@@ -49,7 +49,7 @@ public class MonopolyBoard
 				board.add(new Properties("Star Destroyer", 200));
 				board.add(new Properties("Imperial card", 0));
 				board.add(new Properties("Coruscant: Monument Square", 350));
-				board.add(new Properties("Bounty", 100));
+				board.add(new Properties("Bounty", 0));
 				board.add(new Properties("Coruscant: Imperial Palace", 400));
 //				for(String bob : board)
 //					{
@@ -57,7 +57,7 @@ public class MonopolyBoard
 //					}
 				while(game = true)
 					{
-						System.out.println("You have $" + p.getMoney() + ".");
+						System.out.println("You have " + p.getMoney() + " credits.");
 						System.out.println("You are on " + board.get(spot).getName());
 						int dice = (int)(Math.random()* 6) + 1;
 						int dice1 = (int)(Math.random()* 6) + 1;
@@ -71,15 +71,16 @@ public class MonopolyBoard
 						System.out.println("You rolled a " + dice + " and a " + dice1 + " and you are now on " + board.get(spot).getName() + ".");
 						if(board.get(spot).getPrice() > 0)
 							{
-								System.out.println("Do you want to buy " + board.get(spot).getName() + " for $" + board.get(spot).getPrice() + "? (1) Purchase it. (2) Pass.");
+								System.out.println("Do you want to buy " + board.get(spot).getName() + " for " + board.get(spot).getPrice() + " credits? (1) Purchase it. (2) Pass.");
 								String buy = user1nput.nextLine();
 								if(buy.equals("1"))
 									{
-										System.out.println("Your new amount of money is $" + (p.setMoney(p.getMoney() - board.get(spot).getPrice())) + "." );
+										System.out.println("Your new amount of money is " + (p.setMoney(p.getMoney() - board.get(spot).getPrice())) + " credits." );
 										System.out.println("Your properties are: ");
-										for(int i = 0; i > player.size(); i++)
+										inventory.add(board.get(spot));
+										for(Properties b : inventory)
 											{
-												System.out.println( + ", ");
+												System.out.println("You now own " + b.getName() + ".");
 											}
 									}
 								else
