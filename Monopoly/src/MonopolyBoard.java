@@ -1,60 +1,117 @@
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MonopolyBoard
 	{
 		static Scanner user1nput = new Scanner (System.in);
-		public static void main(String[] args)
+		public static void main(String[] args) throws IOException
 			{
+				int i = 0;
+				Scanner file = new Scanner(new File("StarWarsMonopoly.txt"));
+				Scanner file1 = new Scanner(new File("RegularMonopoly.txt"));
+				System.out.println("What category do you want Star Wars(1) or Regular(2)?");
+				String category = user1nput.nextLine();
 				ArrayList<Properties> inventory = new ArrayList<Properties>();
 				Player p = new Player(1500, 0);
 				int spot = 0;
 				boolean game = true;
+				ArrayList<String> stuff = new ArrayList<String>();
+				if(category.equals("1"))
+					{
+						while(file.hasNext())
+							{
+								stuff.add(file.nextLine());
+							}
+					}
+				else
+					{
+						while(file1.hasNext())
+							{
+								stuff.add(file.nextLine());
+							}
+					}
 				ArrayList<Properties> board = new ArrayList<Properties>();
-				board.add(new Properties("Go", 0));
-				board.add(new Properties("Dagobah: Swamp", 60));
-				board.add(new Properties("Republic Card", 0));
-				board.add(new Properties("Dagobah: Yoda's Hut", 60));
-				board.add(new Properties("Docking Tax", 200));
-				board.add(new Properties("Tie Fighter", 200));
-				board.add(new Properties("Hoth: Frozen Plain", 100));
-				board.add(new Properties("Imperial Card", 0));
-				board.add(new Properties("Hoth: North Bridge", 100));
-				board.add(new Properties("Hoth: Echo Base", 120));
-				board.add(new Properties("Jail", 0));
-				board.add(new Properties("Tatooine: Lars Homestead", 140));
-				board.add(new Properties("Rebel Core", 150));
-				board.add(new Properties("Tatooine: Mos Eisley", 140));
-				board.add(new Properties("Tatooine: Jabba's Palace", 160));
-				board.add(new Properties("Millenium Falcon", 200));
-				board.add(new Properties("Yavin Four: War Room", 180));
-				board.add(new Properties("Rebel Card", 0));
-				board.add(new Properties("Yavin Four: Massassi Temple", 180));
-				board.add(new Properties("Yavin Four: Temple Throne Room", 200));
-				board.add(new Properties("Free Parking", 0));
-				board.add(new Properties("Cloud City: Landing Platform", 220));
-				board.add(new Properties("Imperial Card", 0));
-				board.add(new Properties("Cloud City: Carbon Freezing Chamber", 220));
-				board.add(new Properties("Cloud City: Reactor Control Room", 240));
-				board.add(new Properties("X-Wing Fighter", 200));
-				board.add(new Properties("Death Star: Landing Bay", 260));
-				board.add(new Properties("Death Star: Central Core", 260));
-				board.add(new Properties("Moisture Farm", 150));
-				board.add(new Properties("Death star: Throne Room", 280));
-				board.add(new Properties("Go To Jail", 0));
-				board.add(new Properties("Endor: Forest", 300));
-				board.add(new Properties("Endor: Sheild Generator", 300));
-				board.add(new Properties("Rebel Card", 0));
-				board.add(new Properties("Endor: Ewok Village", 320));
-				board.add(new Properties("Star Destroyer", 200));
-				board.add(new Properties("Imperial card", 0));
-				board.add(new Properties("Coruscant: Monument Square", 350));
-				board.add(new Properties("Bounty", 0));
-				board.add(new Properties("Coruscant: Imperial Palace", 400));
-//				for(String bob : board)
-//					{
-//						System.out.print(board);
-//					}
+				board.add(new Properties(stuff.get(i), 0));
+				
+				board.add(new Properties(stuff.get(i), 60));
+				
+				board.add(new Properties(stuff.get(i), 0));
+				
+				board.add(new Properties(stuff.get(i), 60));
+				
+				board.add(new Properties(stuff.get(i), -200));
+				
+				board.add(new Properties(stuff.get(i), -200));
+				
+				board.add(new Properties(stuff.get(i), 100));
+				
+				board.add(new Properties(stuff.get(i), 0));
+				
+				board.add(new Properties(stuff.get(i), 100));
+				
+				board.add(new Properties(stuff.get(i), 120));
+				
+				board.add(new Properties(stuff.get(i), 0));
+				
+				board.add(new Properties(stuff.get(i), 140));
+				
+				board.add(new Properties(stuff.get(i), -150));
+				
+				board.add(new Properties(stuff.get(i), 140));
+				
+				board.add(new Properties(stuff.get(i), 160));
+				
+				board.add(new Properties(stuff.get(i), -200));
+				
+				board.add(new Properties(stuff.get(i), 180));
+				
+				board.add(new Properties(stuff.get(i), 0));
+				
+				board.add(new Properties(stuff.get(i), 180));
+				
+				board.add(new Properties(stuff.get(i), 200));
+				
+				board.add(new Properties(stuff.get(i), 0));
+				
+				board.add(new Properties(stuff.get(i), 220));
+				
+				board.add(new Properties(stuff.get(i), 0));
+				
+				board.add(new Properties(stuff.get(i), 220));
+				
+				board.add(new Properties(stuff.get(i), 240));
+				
+				board.add(new Properties(stuff.get(i), -200));
+				
+				board.add(new Properties(stuff.get(i), 260));
+				
+				board.add(new Properties(stuff.get(i), 260));
+				
+				board.add(new Properties(stuff.get(i), -150));
+				
+				board.add(new Properties(stuff.get(i), 280));
+				
+				board.add(new Properties(stuff.get(i), 0));
+				
+				board.add(new Properties(stuff.get(i), 300));
+				
+				board.add(new Properties(stuff.get(i), 300));
+				
+				board.add(new Properties(stuff.get(i), 0));
+				
+				board.add(new Properties(stuff.get(i), 320));
+				
+				board.add(new Properties(stuff.get(i), -200));
+				
+				board.add(new Properties(stuff.get(i), 0));
+				
+				board.add(new Properties(stuff.get(i), 350));
+				
+				board.add(new Properties(stuff.get(i), -100));
+				
+				board.add(new Properties(stuff.get(i), 400));
 				while(game = true)
 					{
 						System.out.println("You have " + p.getMoney() + " credits.");
